@@ -28,6 +28,13 @@ address:
   - line: IIIT-H,
   - line: Hyderabad 500032 India.
 
+#enabled gems(plugins) of my website.
+gems:
+  - jekyll-mentions
+  - jemoji
+  - jekyll-redirect-from
+  -  jekyll-sitemap
+
 # Build settings
 markdown: kramdown
 permalink: pretty
