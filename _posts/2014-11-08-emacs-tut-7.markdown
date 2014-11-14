@@ -9,6 +9,10 @@ client: abc
 category: Sys-admin
 description: Read thru
 ---
+# What would you do with 10hrs extra a week?
+
+## No coding, no design, no maintenance. AI websites that make themselves
+![](https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/assets/images/mountain.jpg)
 
 
 #+title: An example document
