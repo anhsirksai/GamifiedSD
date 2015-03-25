@@ -1,5 +1,6 @@
 ---
 layout: post
+modal-id: 7
 title: Installing Sublime Text on Ubuntu14.04
 ---
 
