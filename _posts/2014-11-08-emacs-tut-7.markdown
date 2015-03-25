@@ -9,6 +9,15 @@ client: abc
 category: Sys-admin
 description: Read thru
 ---
+<div class="message">
+  This article includes steps to install Sublime Text on Ubuntu
+</div>
+* sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
+### If your machine is behind a proxy, we need to preserve existin environment variables using '-E'
+* sudo -E add-apt-repository -y ppa:webupd8team/sublime-text-3
+### Update and Install sublime:
+* sudo apt-get update; sudo apt-get install -y sublime-text-installer
+
 # What would you do with 10hrs extra a week?
 
 ## No coding, no design, no maintenance. AI websites that make themselves
