@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 modal-id: 7
 date: 2014-11-08
 img: submarine.png
