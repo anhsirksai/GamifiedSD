@@ -1,3 +1,16 @@
+---
+layout: post
+modal-id: 3
+date: 2014-04-02
+project-date: April 2015
+client: N/A
+category: Gamification
+description: Setup unseinfuser
+---
+<div class="message">
+  This article tools required and setup for implementing game design elements
+</div>
+
 ## Beginning development with userinfuser - an opensource project reseased by cloudcaptive
 
 ###  Host the app  locally on Appscale
