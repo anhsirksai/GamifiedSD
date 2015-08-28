@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block entire_body %}
+
+<h1>Using diffcommenter</h1>
+<ol>
+    {% if user.is_anonymous %}
+    <li><a href="{% url 'register' %}">Register</a> and <a href="{% url 'login'%}">log in</a>.</li>
+    {% else %}
+    <li>Save the following as <code>~/.diffcommenter</code>:
+    <br>
+<pre class="code">[Diffcommenter]
+url = {{ settings.ROOT_URL }}
+login = {{ user.username }}
+password = your_password_here</pre>
+    </li>
+    <li>Download <a href="{% url "download_to_review" %}">to-review.py</a> and save it in your home directory.</li>
+    <li>In your <code>.bashrc</code> add an alias:
+<pre class="code">alias to-review="python ~/to-review.py"</pre>
+    <li>To submit code to diffcommenter, use the <code>to-review</code> tool from inside your repository, like so:
+<pre class="code"><i># send commits from current branch to review</i>
+to-review
+<i># send commits from specific branch</i>
+to-review --branch origin/feature/mega_feature
+<i># send all commits as a single diff</i>
+to-review --diff
+<i># submit only a specific commit</i>
+to-review --only 1ef3c44
+<i># submit several entire files, not diffs</i>
+to-review -f file1.txt -f file2.txt</pre>
+Last option does not require the files to be inside a Git repository.
+    </li>
+    <li>The tool will print a link to the submitted code inside diffcommenter; for example, <a href="{% url 'commit_sequence' 1 %}">{{ settings.ROOT_URL }}/S1/</a>.</li>
+    {% endif %}
+</ol>
+
+<h1>Recent reviews</h1>
+{% for seq in sequences %}
+<div>
+    <span style="display: inline-block; width: 8em; text-align: right">{{ seq.pk }}.</span>
+    {{ seq.added }}
+    <a href="{{ seq.get_edit_url }}">{{ seq.title }}</a>, {{ seq.commits.all|length }} commit(s){% if seq.user %}, added by <i>{{ seq.user }}</i>{% endif %}
+</div>
+{% empty %}
+(no reviews yet)
+{% endfor %}
+{% endblock %}

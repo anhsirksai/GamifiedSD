@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>{% block page_title %}Diffcommenter{% endblock %}</title>
+    <link href="{{ STATIC_URL }}css/common.css" rel="stylesheet" media="screen">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ STATIC_URL }}/favicon.ico">
+    {% block head_extra %}
+    {% endblock %}
+</head>
+<body>
+<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.ba-viewportoffset.min.js"></script>
+
+<div id="top_fixed_bar">
+    <a class="bland_link" href="/">Diffcommenter</a>
+    |
+    <span class="top_bar_title">{% block top_bar_title %}Main{% endblock %}</span>
+    <div class="top_bar_user_info">
+        {% if user.is_authenticated %}
+        ☑ <i>{{ user }}</i> (<a href="{% url 'chpasswd' %}" title="Change your password">chpasswd</a>|<a href="{% url 'logout' %}">logout</a>)
+        {% else %}
+        ☒ <a href="{% url 'login' %}?next={{ request.get_full_path }}">login</a>
+        | <a href="{% url 'register' %}">register</a>
+        {% endif %}
+    </div>
+</div>
+
+{% block entire_body %}
+{% endblock %}
+</body>
+</html>
